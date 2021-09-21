@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proyecto Protocolo FTP</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="JavaScript" href="js/funciones.js">
+    <!-- Bootstrap CSS -->
+    </head>
+    <body>
+      <div id="contenedor"
+      <header>
+        <img src="imagenes/fondo.jpg" width="100%" height="300px">
+       <div class="texto-encima"></div>
+       <div class="centrado"><h2>FTP</h2></div>
+      </div
+      </header>
+<section id="menu">
+  <ul>
+    <a href="index.html">INICIO</a>
+    <a href="caracteristicas.html">CARACTERISTICAS</a>
+    <a href="Funcionalidad.html">FUNCIONALIDAD</a>
+  </ul>
+</header>
+  <section id="contenido">
+    <br>
+    <br>
+    <br>
+    <article>
+      <h2>Funcionamiento</h2>
+      <br>
+      <p> Se encarga de solicitar al usuario mediante el servidor una comunicación, esto se realiza mediante el puerto 21 posteriormente se envía las acciones a llevar a cabo con los datos, como paramentos de conexión y de gestión. Ahora bien, para la trasferencia de información del servidor al usuario, inicia el servidor por el puerto 20 y después de un buen rato esperando a que se transfiera la información se envían los archivos correspondientes a los parámetros indicados.​</p>
+      <img src="imagenes/Diagrama-de-modo-activo-de-FTP..png" width="250" height="250">
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+    <h2>Entidades que intervienen en la transferencia de archivos</h2>
+    <br>
+    <br>
+    <p>Hay dos entidades que intervienen en la transferencia de archivos tanto en el servidor como en el cliente.</p>
+ <ol>
+   <li>El intérprete de protocolo: Intercambia los comandos del protocolo de tal forma que para la parte de clientes las operaciones que el usuario solicita a través de la interfaz de usuario, el intérprete las convierte en una secuencia adecuadas de comando FTP y se envían al servidor. Por la parte del servidor se interpretan los comandos recibidos, se generan las respuestas correspondientes y se envían al cliente.</li>
+   El proceso de transferencia de datos: Se encarga de intercambiar los datos que deben transferirse, como tal el contenido o un listado de los directorios. Tanto en la parte del cliente como en la del servidor ambos procesos interactúan directamente con el sistema de ficheros locales para leer sus datos. Por lo tanto, los dos intérpretes de protocolo se comunican mediante una conexión de TCP llamada conexión de control.</li>
+  </ol>
+  <img src="imagenes/400px-Modelo_ftp.jpg" width="250" height="250">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h2>Comandos y respuestas</h2>
+  <br>
+  <ol>
+    <li>Comandos FTP: Se representa por medio de un código de comando de hasta cuatro letras y puede estar en         mayúsculas o minúsculas, pueden estar separados por espacios y con un final de línea. Algunos ejemplos de estos comandos son: </li>
+  </ol>
+  <b>Comandos de control de acceso:</b>
+  <ul>
+    <li>Nombre del usuario (USER): Identificador del usuario esto con la finalidad de acceder a los archivos, suele ser el primer comando que envía el cliente.</li>
+    <li>Contraseña (PASS): Es la contraseña que necesita el servidor para verificar la identidad del usuario.</li>
+    <li>Cuenta (ACCT): El usuario puede proporcionar una identificación de cuenta, como por ejemplo almacenar archivos, entonces el servidor hará saber que necesita esa información enviado una respuesta.</li>
+    <li>Reinicializar (REIN): El servidor reinicializa la sesión olvidando la identidad del usuario y devuelve los parámetros de tal forma que la sesión queda en el mismo estado en que se encontraba justo después de establecer la conexión de control.</li>
+    <li>Acabar la sesión (QUIT): El servidor lo que realiza es dar la sesión por terminadas para finalizarla y cerrar la conexión de control.</li>
+    <b>Comandos de parametros de transferencia:</b>
+    <ul>
+      <li>Estructura de fichero (STRU): Este comando especifica como estarán estructurados los ficheros que deben transferirse.</li>
+      <li>Modo de transmisión (MODE): El argumento indica cómo se transmitirán los archivos.</li>
+        <li>Tipo de representación (TYPE): Este comando especifica cómo se representarán los datos de los ficheros que deben transferirse. Para ello consta de un proceso en el cual debe convertir el contenido de los archivos en una representación especificada, y el proceso que los recibe, debe convertirlos en su representación local.</li>
+        <li>Puerto de datos (PORT): Este comando el cliente indica cuál es su puerto de datos no obstante en caso de que el puerto sea diferente el servidor debe establecer la conexión de datos en el puerto especificado, en caso contrario de que se halla establecido con otro puerto el servidor debe cerrarlo.</li>
+        <li>Puerto Pasivo (PASV): Este comando se utiliza en las transferencias entre servidores. El cliente debe establecer conexiones de control con los dos servidores, enviar un comando PASV a uno de los mismos y pasar la dirección devuelta al otro comando PORT.</li>
+    </ul>
+    <b>comandos de servicio FTP:</b>
+<ul>
+  <li>Obtener (RETR): Este comando es la operación de transferencia de ficheros del servidor hacia el cliente, el proceso que envía los datos puede insertar un tipo especial de bloque denominado marca de reanudación.</li>
+<li>Almacenar (STOR): Esta es la operación de transferencia de ficheros del cliente ya que como tal será enviado hacia el servidor. En dado caso que si el fichero no existe se puede crear.</li>
+</ul>
+<br>
+<p>Respuestas FTP: Constan de un código numérico de tres dígitos decimales, que permite al intérprete de protocolo      cliente saber el resultado de la operación, seguido de un texto explicativo destinado al usuario humano.</p>
+<ul>
+  <li>Si tiene una línea: La respuesta se representa con el código numérico seguido del carácter espacio y posteriormente el texto y un final de línea. </li>
+<li>Si tiene más de una línea: La primera se representa con el código numérico seguido del carácter “-”.</li>
+</ul>
+<br>
+<img src="imagenes/internet-images-modeleftp.gif">
+
+</article>
+    </section>
+    <footer>
+      <h2></h2>
+    </footer>
+  </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+</html>
